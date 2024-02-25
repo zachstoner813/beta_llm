@@ -27,9 +27,9 @@ if 'assistant_id' not in st.session_state:
     st.session_state.file_ids = file_ids
 
 # Streamlit layout for user input
-st.title("Beta Bot #23")
-user_query = st.text_area("Enter your Beta Alpha Psi questions here:", height=150)
-submit_button = st.button("Submit Query")
+st.title("BAP GPT")
+user_query = st.text_area("Enter your Beta Alpha Psi related questions here:", height=150)
+submit_button = st.button("I have information on olicies and procedures, upcoming events, and the Candidacy Manual")
 
 def process_query(query):
     if st.session_state['thread_id'] is None:
