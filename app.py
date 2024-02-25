@@ -27,7 +27,7 @@ if 'assistant_id' not in st.session_state:
     st.session_state.file_ids = file_ids
 
 # Streamlit layout for user input
-st.title("BAP GPT")
+st.title("BAP-GPT")
 user_query = st.text_area("**Enter your Beta Alpha Psi related questions here:** *I have information on policies and procedures, upcoming events, officer/chair contact info and the Candidacy Manual*", height=150)
 submit_button = st.button("Submit")
 
