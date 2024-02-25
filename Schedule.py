@@ -43,10 +43,12 @@ def main():
     else:
         doc = Document()
         for row in values:
-            row += [''] * (2 - len(row))  # Ensure row has 2 elements
-            # Add a row in the Word document
+            # Ensure row has at least 4 elements by extending with empty strings if necessary
+            row += [''] * (4 - len(row))
+            # Now, it's safe to format the paragraph with up to 4 elements from the row
             paragraph = doc.add_paragraph()
-            paragraph.add_run('%s, %s, %s, %s' % (row[0], row[1], row[2], row[3]))
+            paragraph.add_run(', '.join(row))  # This handles any number of elements gracefully
+
         
         # Ensure the directory exists
         directory = "var_files"
