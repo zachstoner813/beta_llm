@@ -6,9 +6,8 @@ from assistant_creation import create_assistant
 from file_upload import upload_files
 from thread_management import generate_response, run_assistant
 
-# Load API key and create a client
-load_dotenv()
-OPEN_AI_API_KEY = os.getenv("OPEN_AI_KEY")
+#st.secrets import
+OPEN_AI_API_KEY = st.secrets["openai_secret_key"]
 client = OpenAI(api_key=OPEN_AI_API_KEY)
 
 # Paths to files to be uploaded

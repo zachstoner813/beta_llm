@@ -2,6 +2,8 @@ Shelf is a python database that can be used to store the threads....
 one they reach a certain copacity then the shelf will be cleared and the subsequent threads.
 
 
+change using st secrets
+
 
 
 
