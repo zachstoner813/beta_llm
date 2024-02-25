@@ -46,7 +46,7 @@ if submit_button and user_query:
     st.text_area("Response:", value=response, height=150, disabled=True)
 
 # Add a new button for closing the app and deleting files
-if st.button('*Delete Files*'):
+if st.button('*CLICK ME when finished!*'):
     for file_id in st.session_state.file_ids:
         try:
             file_deletion_status = client.beta.assistants.files.delete(
