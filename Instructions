@@ -5,11 +5,15 @@ one they reach a certain copacity then the shelf will be cleared and the subsequ
 open ai key now in streamlit secerets, 
 
 TO DO:
-- finaliZe information for bot 
-    - Candidate manual 
-    - schedule update
 
-- Delete bot 
+
+- Delete bot after 24 hours
+- or delete bot upon close of page
+- try keeping only one bot at a time?
+- 
+
+
+- show source of answer? 
 
 
 
