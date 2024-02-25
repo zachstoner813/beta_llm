@@ -47,9 +47,23 @@ def main():
             # Add a row in the Word document
             paragraph = doc.add_paragraph()
             paragraph.add_run('%s, %s, %s, %s' % (row[0], row[1], row[2], row[3]))
+        
+        # Ensure the directory exists
+        directory = "var_files"
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
-        # Save the document
-        doc.save('BAP_sheet_data.docx')
+         # Define the file path
+        file_path = os.path.join(directory, 'BAP_sheet_data.docx')
+        
+        # Check if the file already exists and delete it if it does
+        if os.path.exists(file_path):
+            os.remove(file_path)
+        
+        # Save the new document
+        doc.save(file_path)
+
+
 if __name__ == '__main__':
     main()
     
