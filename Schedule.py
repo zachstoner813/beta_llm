@@ -56,7 +56,7 @@ def main():
             os.makedirs(directory)
 
          # Define the file path
-        file_path = os.path.join(directory, 'BAP_sheet_data.docx')
+        file_path = os.path.join(directory, 'BAP_Schedule.docx')
         
         # Check if the file already exists and delete it if it does
         if os.path.exists(file_path):

@@ -11,7 +11,7 @@ OPEN_AI_API_KEY = st.secrets["openai_secret_key"]
 client = OpenAI(api_key=OPEN_AI_API_KEY)
 
 # Paths to files to be uploaded
-file_paths = ["static_files/BAP AI Canadiate and Chapter Information.docx", "static_files/BAP AI National Policies and Produres.docx", "var_files/BAP_sheet_data.docx"]
+file_paths = ["static_files/BAP AI Canadiate and Chapter Information.docx", "static_files/BAP AI National Policies and Produres.docx", "var_files/BAP_Schedule.docx"]
 
 # Looking for exisiting thread ID
 if 'thread_id' not in st.session_state:
