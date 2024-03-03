@@ -39,17 +39,23 @@ st.title("BAP-GPT")
 user_query = st.text_area("**Enter your Beta Alpha Psi related questions here:** *I have information on policies and procedures, upcoming events, officer/chair contact info and the Candidate Manual*", height=150)
 submit_button = st.button("Submit")
 
-#def process_query(query):
-#    if st.session_state['thread_id'] is None:
-#        st.session_state['thread_id'] = generate_response(client, query)
-#    else:
-#        generate_response(client, query, st.session_state['thread_id'])
-#    response = run_assistant(client, st.session_state.assistant_id, st.session_state['thread_id'])
-#    return response
 def process_query(query):
-    # Create the assistant if it does not exist
+    # Create the assistant if it does not exist in the session
     if 'assistant_id' not in st.session_state:
-        create_and_store_assistant()
+        file_ids = upload_files(client, file_paths)
+        assistant = create_assistant(client, file_ids)
+        st.session_state['assistant_id'] = assistant.id
+        st.session_state['file_ids'] = file_ids
+
+    # Check if this is the first query in the session
+    if st.session_state['thread_id'] is None:
+        st.session_state['thread_id'] = generate_response(client, query)
+    else:
+        generate_response(client, query, st.session_state['thread_id'])
+
+    # Get the response from the assistant
+    response = run_assistant(client, st.session_state['assistant_id'], st.session_state['thread_id'])
+    return response
 
 
 if submit_button and user_query:
