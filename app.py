@@ -66,7 +66,7 @@ def cleanup():
     st.write("Assistant and resources have been cleaned up.")
 
 
-# Add a new button for closing the app and deleting files
+# Add a new button for closing the app and deleting files..testtest,,
 #if st.button('*CLICK ME when finished!*'):
 #    for file_id in st.session_state.file_ids:
 #        try:
