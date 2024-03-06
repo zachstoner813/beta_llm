@@ -10,28 +10,20 @@ from thread_management import generate_response, run_assistant
 OPEN_AI_API_KEY = st.secrets["openai_secret_key"]
 client = OpenAI(api_key=OPEN_AI_API_KEY)
 
-# Paths to files to be uploaded
-file_paths = ["static_files/BAP AI Canadiate and Chapter Information.docx", "static_files/BAP AI National Policies and Produres.docx", "var_files/BAP_Schedule.docx"]
+# Paths to files to be uploaded : "static_files/BAP AI National Policies and Produres.docx"
+file_paths = ["static_files/BAP AI Canadiate and Chapter Information.docx", "var_files/BAP_Schedule.docx"]
 
 # Looking for exisiting thread ID
 if 'thread_id' not in st.session_state:
     st.session_state['thread_id'] = None
 
 
-# Check if assistant already exists in the session state
-#if 'assistant_id' not in st.session_state:
-    # Upload files and create an assistant
-#    file_ids = upload_files(client, file_paths)
-#    assistant = create_assistant(client, file_ids)
-#    st.session_state.assistant_id = assistant.id
-#    st.session_state.file_ids = file_ids
+
 def create_and_store_assistant():
     file_ids = upload_files(client, file_paths)
     assistant = create_assistant(client, file_ids)
     st.session_state['assistant_id'] = assistant.id
     st.session_state['file_ids'] = file_ids
-
-
 
 
 # Streamlit layout for user input
@@ -73,17 +65,7 @@ def cleanup():
 
 
 # Add a new button for closing the app and deleting files..testtest,,
-#if st.button('*CLICK ME when finished!*'):
-#    for file_id in st.session_state.file_ids:
-#        try:
-#            file_deletion_status = client.beta.assistants.files.delete(
-#                assistant_id=st.session_state.assistant_id,
-#                file_id=file_id
-#            )
-#            print(f"File {file_id} deletion status: {file_deletion_status}")
-#        except Exception as e:
-#            print(f"Error deleting file {file_id}: {e}")
-#    st.stop()  # Stop the Streamlit app
+
 if st.button('*CLICK ME when finished!*'):
     cleanup()
     st.stop()  # Stop the Streamlit app
